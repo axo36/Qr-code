@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Piégé</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c10;--ink:#e8edf3;--mut:#8b96a5;--a:#5ad1ff;--line:#ffffff1f;color-scheme:dark}
+html,body{height:100%}
+body{margin:0;display:flex;align-items:center;justify-content:center;padding:max(20px,env(safe-area-inset-top,0px)) 20px max(20px,env(safe-area-inset-bottom,0px));box-sizing:border-box;background:radial-gradient(circle at 1px 1px,#ffffff14 1px,transparent 1.5px) 0 0/28px 28px,radial-gradient(70% 55% at 50% 0%,color-mix(in srgb,var(--a) 16%,transparent),transparent 70%),var(--bg);color:var(--ink);font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;overflow:hidden}
+.ring{position:fixed;left:50%;top:50%;width:260px;aspect-ratio:1;border:2px solid var(--a);border-radius:50%;translate:-50% -50%;opacity:0;animation:r 3s ease-out infinite;pointer-events:none}
+.ring:nth-of-type(2){animation-delay:1s}.ring:nth-of-type(3){animation-delay:2s}
+@keyframes r{0%{scale:.6;opacity:.7}100%{scale:3.2;opacity:0}}
+.card{position:relative;max-width:420px;padding:28px;border:1px solid var(--line);border-radius:18px;background:#12161dcc;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+h1{margin:0 0 10px;font-size:44px;font-weight:800;letter-spacing:-.02em}
+p{margin:0 0 24px;color:var(--mut);line-height:1.6;font-size:15px}
+a{display:inline-block;padding:12px 20px;border-radius:12px;background:var(--a);color:#04121a;font-weight:800;font-size:14px;text-decoration:none}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+</style></head>
+<body>
+<div class="ring"></div><div class="ring"></div><div class="ring"></div>
+<main class="card">
+<h1>Piégé.</h1>
+<p>Ce QR code était un leurre. Le vrai est encore sur l’écran de jeu, et il rebondit toujours.</p>
+<a id="back" href="./">Retourner au jeu</a>
+</main>
+<script>
+if(new URLSearchParams(location.search).get('n')==='2'){document.documentElement.style.setProperty('--a','#b39bff');document.getElementById('back').href='niveau2.html'}
+navigator.vibrate&&navigator.vibrate([60,40,60]);
+</script>
+</body></html>
